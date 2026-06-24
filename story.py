@@ -1,6 +1,6 @@
 import os
 import json
-from pyrogram import Client, enums
+from pyrogram import Client
 
 API_ID = int(os.environ.get("TELEGRAM_API_ID"))
 API_HASH = os.environ.get("TELEGRAM_API_HASH")
@@ -53,7 +53,6 @@ def main():
                         chat_id="me",
                         media=msg.photo.file_id,
                         caption=msg.caption or "",
-                        privacy=enums.StoriesPrivacyRules.EVERYONE,
                     )
                     print(f"وێنەی پۆستی {msg.id} نێردرا بۆ ستۆری ✅")
 
@@ -62,7 +61,6 @@ def main():
                         chat_id="me",
                         media=msg.video.file_id,
                         caption=msg.caption or "",
-                        privacy=enums.StoriesPrivacyRules.EVERYONE,
                     )
                     print(f"ڤیدیۆی پۆستی {msg.id} نێردرا بۆ ستۆری ✅")
 
