@@ -36,6 +36,7 @@ jobs:
         run: |
           git config user.name "story-bot"
           git config user.email "story-bot@users.noreply.github.com"
+          touch last_message.json
           git add last_message.json
           git diff --staged --quiet || git commit -m "update last sent message id"
           git push
