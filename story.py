@@ -51,7 +51,7 @@ def main():
                 if msg.photo:
                     app.send_story(
                         chat_id="me",
-                        media=msg.photo.file_id,
+                        photo=msg.photo.file_id,
                         caption=msg.caption or "",
                     )
                     print(f"وێنەی پۆستی {msg.id} نێردرا بۆ ستۆری ✅")
@@ -59,7 +59,7 @@ def main():
                 elif msg.video:
                     app.send_story(
                         chat_id="me",
-                        media=msg.video.file_id,
+                        video=msg.video.file_id,
                         caption=msg.caption or "",
                     )
                     print(f"ڤیدیۆی پۆستی {msg.id} نێردرا بۆ ستۆری ✅")
@@ -71,6 +71,12 @@ def main():
 
             except Exception as e:
                 print(f"هەڵە لە ناردنی پۆستی {msg.id}: {e}")
+                try:
+                    import inspect
+                    sig = inspect.signature(app.send_story)
+                    print(f"شێوازی ڕاستەقینەی send_story: {sig}")
+                except Exception as e2:
+                    print(f"نەتوانرا signature ـی send_story وەربگیرێت: {e2}")
 
 
 if __name__ == "__main__":
