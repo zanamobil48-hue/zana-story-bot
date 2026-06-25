@@ -3,7 +3,7 @@ name: Repost Channel Posts to Telegram Story
 on:
   schedule:
     # هەر 10 خولەک جارێک دەڕوات (دەتوانیت بیگۆڕیت)
-    - cron: "*/10 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch: {}
 
 permissions:
